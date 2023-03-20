@@ -44,11 +44,15 @@ class GPT():
 
         response = completion.choices[0].text
         return response
+    
+    '''Angela's prompt'''
+    def angela(self,country):
+        promt = f"What is the most popular activity in {country}"
+        return self.getResponse(promt)
 
-# sample change
 if __name__=='__main__':
     '''
     '''
     import os
     g = GPT(os.environ.get("APIKEY"))
-    print(g.getResponse("what does openai's GPT stand for?"))
+    #print(g.getResponse("what does openai's GPT stand for?"))
