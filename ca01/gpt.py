@@ -1,8 +1,8 @@
 '''
 Demo code for interacting with GPT-3 in Python.
 
-To run this you need to 
-* first visit openai.com and get an APIkey, 
+To run this you need to
+* first visit openai.com and get an APIkey,
 * which you export into the environment as shown in the shell code below.
 * next create a folder and put this file in the folder as gpt.py
 * finally run the following commands in that folder
@@ -44,11 +44,16 @@ class GPT():
 
         response = completion.choices[0].text
         return response
-    
+
     '''Angela's prompt'''
     def angela(self,country):
         promt = f"What is the most popular activity in {country}"
         return self.getResponse(promt)
+
+    '''Dexin's prompt'''
+    def dexin(self,input):
+        prompt = f"Respond to the following input in the style of Shakespeare: {input}"
+        return self.getResponse(prompt)
 
 if __name__=='__main__':
     '''

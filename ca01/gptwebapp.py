@@ -38,12 +38,13 @@ def index():
         <li><a href="{url_for('about')}">About</a></li>
         <li><a href="{url_for('team')}">Team</a></li>
         <li><a href="{url_for('gptAngela')}">Angela</a></li>
+        <li><a href="{url_for('gptDexin')}">Dexin</a></li>
     '''
 
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
-    ''' handle a get request by sending a form 
+    ''' handle a get request by sending a form
         and a post request by returning the GPT response
     '''
     if request.method == 'POST':
@@ -82,11 +83,12 @@ def team():
     return f'''
         <h1>Team Members</h1>
         <p> Angela Lam: Senior majoring in Computer Science and Economics </p><br>
+        <p> Dexin Huang: Senior majoring in Business </p><br>
         '''
 
 @app.route('/gptAngela', methods=['GET', 'POST'])
 def gptAngela():
-    ''' handle a get request by sending a form 
+    ''' handle a get request by sending a form
         and a post request by returning the GPT response
     '''
     if request.method == 'POST':
@@ -98,8 +100,9 @@ def gptAngela():
         <hr>
         Here is the answer in text mode:
         <div style="border:thin solid black">{answer}</div>
-        
+
         <li><a href={url_for('gptAngela')}> make another query</a></li>
+        <li><a href={url_for('gptDexin')}> GPTDexin</a></li>
         <li><a href="{url_for('gptdemo')}">GPT Demo</a></li>
         <li><a href="{url_for('about')}">About</a></li>
         <li><a href="{url_for('team')}">Team</a></li>
@@ -108,6 +111,37 @@ def gptAngela():
         return '''
         <h1>Angela's prompt</h1>
         What is the most popular activity in ...
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+        '''
+
+@app.route('/gptDexin', methods=['GET', 'POST'])
+def gptDexin():
+    ''' handle a get request by sending a form
+        and a post request by returning the GPT response
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.dexin(prompt)
+        return f'''
+        <h1>Dexin's prompt</h1>
+        <pre style="bgcolor:yellow">{prompt}</pre>
+        <hr>
+        Here is the answer in text mode:
+        <div style="border:thin solid black">{answer}</div>
+
+        <li><a href={url_for('gptDexin')}> make another query</a></li>
+        <li><a href={url_for('gptAngela')}> GPTAngela</a></li>
+        <li><a href="{url_for('gptdemo')}">GPT Demo</a></li>
+        <li><a href="{url_for('about')}">About</a></li>
+        <li><a href="{url_for('team')}">Team</a></li>
+        '''
+    else:
+        return '''
+        <h1>Dexin's prompt</h1>
+        Respond to the following input in the style of Shakespeare...
         <form method="post">
             <textarea name="prompt"></textarea>
             <p><input type=submit value="get response">
