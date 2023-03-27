@@ -114,7 +114,8 @@ def process_args(arglist):
         category = input('Enter category: ')
         date = datetime.datetime.strptime(input('Enter date (yyyy-mm-dd): '), '%Y-%m-%d')
         description = input('Enter description: ')
-        info = {'amount': amount, 'category': category, 'date': date.date(), 'description': description}
+        info = {'amount': amount, 'category': category, 'date': date.date(),
+                'description': description}
         transaction.add_transaction(info)
     elif 'delete' in arglist[0]:
         print_transactions(transaction.show_transactions())
