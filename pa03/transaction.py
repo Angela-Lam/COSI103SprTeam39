@@ -1,5 +1,5 @@
 '''
-This program is written by Angela Zhang and Dexin Huang
+This program is written by Angela Lam and Dexin Huang
 
 Transaction is an Object Relational Mapping to the transactions.db database
 
@@ -84,16 +84,16 @@ class Transaction:
     def delete_transaction(self, rowid):
         ''' Delete a transaction by item_no '''
         return self.run_query("DELETE FROM transactions WHERE rowid=?", (rowid,))
-
+    #Angela
     def summarize_by_date(self):
         ''' Summarize transactions by date '''
         return self.run_query("SELECT date, SUM(amount) FROM transactions GROUP BY date",())
-
+    #Angela
     def summarize_by_month(self):
         ''' Summarize transactions by month '''
         return self.run_query(
             "SELECT strftime('%m', date) AS month, SUM(amount) FROM transactions GROUP BY month",())
-
+    #Angela
     def summarize_by_year(self):
         ''' Summarize transactions by year '''
         return self.run_query(
