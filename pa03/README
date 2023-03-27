@@ -10,3 +10,16 @@ Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
 -------------------------------------------------------------------
 Your code has been rated at 10.00/10 (previous run: 9.87/10, +0.13)
+Pytest:
+(base) C:\Users\dexin\Documents\GitHub\COSI103SprTeam39\pa03>pytest test_transaction.py
+================================================================= test session starts ==================================================================
+platform win32 -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0
+rootdir: C:\Users\dexin\Documents\GitHub\COSI103SprTeam39\pa03
+plugins: anyio-3.5.0
+collected 7 items
+
+test_transaction.py .......                                                                                                                       [100%]
+
+================================================================== 7 passed in 0.15s ===================================================================
+
+(base) C:\Users\dexin\Documents\GitHub\COSI103SprTeam39\pa03>
