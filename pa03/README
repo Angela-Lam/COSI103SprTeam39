@@ -1,12 +1,12 @@
 PA 03
 Pylint: 
-(base) C:\Users\dexin\Desktop\cs103a_TeamProjects-main\cs103a_TeamProjects-main\pa03>pylint tracker.py
-
--------------------------------------------------------------------
-Your code has been rated at 10.00/10 (previous run: 9.61/10, +0.39)
-
-
-(base) C:\Users\dexin\Desktop\cs103a_TeamProjects-main\cs103a_TeamProjects-main\pa03>pylint transaction.py
+(base) C:\Users\dexin\Documents\GitHub\COSI103SprTeam39\pa03>pylint transaction.py
 
 --------------------------------------------------------------------
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+
+(base) C:\Users\dexin\Documents\GitHub\COSI103SprTeam39\pa03>pylint tracker.py
+
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 9.87/10, +0.13)
