@@ -5,7 +5,7 @@ from transaction import Transaction, to_dict, tuples_to_dicts
 
 @pytest.fixture
 def tuples():
-    " create some tuples to put in the database "
+    """Create some tuples to put in the database."""
     return [
         (10, "category0", datetime.date(2023, 1, 1).strftime('%Y-%m-%d'), "test0"),
         (10, "category1", datetime.date(2023, 1, 2).strftime('%Y-%m-%d'), "test1")
@@ -13,21 +13,22 @@ def tuples():
 
 @pytest.fixture
 def returned_tuples(tuples):
-    " add a rowid to the beginning of each tuple "
+    """Add a rowid to the beginning of each tuple."""
     return [(i+1,)+tuples[i] for i in range(len(tuples))]
 
 @pytest.fixture
 def returned_dicts(tuples):
-    " add a rowid to the beginning of each tuple "
+    """Convert tuples to dictionaries and add a rowid to the beginning of each tuple."""
     return tuples_to_dicts([(i+1,)+tuples[i] for i in range(len(tuples))])
 
 @pytest.fixture
 def transactions_path(tmp_path):
+    """Get the path for the transactions database file."""
     return tmp_path / 'transactions.db'
 
 @pytest.fixture(autouse=True)
 def transactions(transactions_path,tuples):
-    "create and initialize the transactions.db database in /tmp "
+    """Create and initialize the transactions.db database in /tmp."""
     con = sqlite3.connect(transactions_path)
     cur = con.cursor()
     cur.execute('''CREATE TABLE IF NOT EXISTS transactions (amount int, category text, date date, description text)''')
