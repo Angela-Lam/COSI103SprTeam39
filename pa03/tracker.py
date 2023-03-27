@@ -1,5 +1,5 @@
 """
-This program is written by Angela Zhang and Dexin Huang
+This program is written by Angela Lam and Dexin Huang
 
 Tracker is an app that maintains a transactions database.
 
@@ -66,7 +66,7 @@ def print_summary(header, transaction):
         values = tuple(item.values())
         print(f"{values[0]:<18} {values[1]}")
 
-
+# Angela
 def print_transactions(transaction):
     '''
     Print a formatted table of transactions with headers and values.
