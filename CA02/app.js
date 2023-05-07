@@ -8,6 +8,7 @@ const pw_auth_router = require('./routes/pwauth');
 const toDoRouter = require('./routes/todo');
 const weatherRouter = require('./routes/weather');
 const gptRouter = require('./routes/gpt');
+const cantoRouter = require('./routes/cantonese');
 require('dotenv').config();
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -119,9 +120,15 @@ app.get('/team',
   }
 )
 
+app.get('/index', (req,res,next) => {
+  res.render('index');
+})
+
+
 app.use(toDoRouter);
 app.use(weatherRouter);
 app.use(gptRouter);
+app.use(cantoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
