@@ -1,0 +1,62 @@
+<h1>Transactions for <%= user.username %></h1>
+<p>Here are your Transactions!</p>
+<% if (!group) { %>
+<div class="text-center">
+    <div class="row">
+    <div class="col"><a href="/transaction?groupBy=category" class="btn btn-primary">group by category</a></div>
+    <div class="col"><a href="/transaction?sortBy=category" class="btn btn-primary">sort by category</a></div>
+    <div class="col"><a href="/transaction?sortBy=amount" class="btn btn-primary">sort by amount</a></div>
+    <div class="col"><a href="/transaction?sortBy=description" class="btn btn-primary">sort by description</a></div>
+    <div class="col"><a href="/transaction?sortBy=date" class="btn btn-primary">sort by date</a></div>
+</div>
+</div>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    <% transactions.forEach(transaction => { %>
+        <tr>
+            <td>
+                <%= transaction.description%>
+            </td>
+            <td>
+                <%= transaction.amount%>
+            </td>
+            <td>
+                <%= transaction.category%>
+            </td>
+            <td>
+                <%= transaction.date%>
+            </td>
+            <td><a href="/transaction/remove/<%= transaction._id%>" class="bi bi-trash"></a></td>
+            <td><a href="/transaction/edit/<%= transaction._id%>" class="bi bi-pencil-square"></a></td>
+            <%});%>
+        </tr>
+</table>
+
+<h3>Add a new Transaction</h3>
+<form action="/transaction" method="POST">
+    <input type="text" name="description" id="description" placeholder="description" style="display:block" >
+    <input type="text" name="category" id="category" placeholder="category" style="display:block">
+    <input type="number" name="amount" id="amount" placeholder="amount" style="display:block">
+    <input type="date" name="date" id="date" placeholder="date" style="display:block">
+    <input type="submit" value="store" style="display:block">
+</form>
+
+<%} else {%>
+<li><a href="/transaction">transaction table</a></li>
+<table class="table table-striped table-bordered">
+    <% transactions.map(transaction => { %>
+        <tr>
+            <td><%= transaction._id%></td>
+            <td><%= transaction.total %></td>
+        </tr>
+   <% })%>
+</table>
+<%}%>
